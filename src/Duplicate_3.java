@@ -1,14 +1,13 @@
 import java.util.Scanner;
+import java.util.HashSet;
 class Solution3{
     public boolean containsDuplicate(int[] nums){
-        int count=0;
-        int k = nums.length;
-        for (int i=0; i<k-1; i++){
-            for (int j=i+1; j<k; j++){
-                if (nums[i] == nums[j]){
-                    return true;
-                }
+        HashSet<Integer> hashSet = new HashSet<>();
+        for (int i=0; i< nums.length; i++){
+            if (hashSet.contains(nums[i])){
+                return true;
             }
+            hashSet.add(nums[i]);
         }
         return false;
     }
